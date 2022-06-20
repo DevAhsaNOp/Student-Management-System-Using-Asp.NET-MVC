@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="studentmanagementsystem_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="class">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="section" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="IsMaths" Type="bit" />
+    <Property Name="IsEnglishLiterature" Type="bit" />
+    <Property Name="IsEnglishGrammar" Type="bit" />
+    <Property Name="IsUrdu" Type="bit" />
+    <Property Name="IsIslamiyat" Type="bit" />
+    <Property Name="IsScience" Type="bit" />
+    <Property Name="IsPhysics" Type="bit" />
+    <Property Name="IsChemistry" Type="bit" />
+    <Property Name="IsComputer" Type="bit" />
+    <Property Name="IsHistory" Type="bit" />
+    <Property Name="IsGeography" Type="bit" />
+  </EntityType>
+  <EntityType Name="class_routine">
+    <Key>
+      <PropertyRef Name="rou_id" />
+    </Key>
+    <Property Name="rou_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rou_day" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="class_id" Type="int" />
+    <Property Name="IsMaths" Type="bit" />
+    <Property Name="IsMathsSlot" Type="nvarchar" MaxLength="80" />
+    <Property Name="IsEnglishLiterature" Type="bit" />
+    <Property Name="IsEnglishLiteratureSlot" Type="nvarchar" MaxLength="80" />
+    <Property Name="IsEnglishGrammar" Type="bit" />
+    <Property Name="IsEnglishGrammarSlot" Type="nvarchar" MaxLength="80" />
+    <Property Name="IsUrdu" Type="bit" />
+    <Property Name="IsUrduSlot" Type="nvarchar" MaxLength="80" />
+    <Property Name="IsIslamiyat" Type="bit" />
+    <Property Name="IsIslamiyatSlot" Type="nvarchar" MaxLength="80" />
+    <Property Name="IsScience" Type="bit" />
+    <Property Name="IsScienceSlot" Type="nvarchar" MaxLength="80" />
+    <Property Name="IsPhysics" Type="bit" />
+    <Property Name="IsPhysicsSlot" Type="nvarchar" MaxLength="80" />
+    <Property Name="IsChemistry" Type="bit" />
+    <Property Name="IsChemistrySlot" Type="nvarchar" MaxLength="80" />
+    <Property Name="IsComputer" Type="bit" />
+    <Property Name="IsComputerSlot" Type="nvarchar" MaxLength="80" />
+    <Property Name="IsHistory" Type="bit" />
+    <Property Name="IsHistorySlot" Type="nvarchar" MaxLength="80" />
+    <Property Name="IsGeography" Type="bit" />
+    <Property Name="IsGeographySlot" Type="nvarchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="fees">
+    <Key>
+      <PropertyRef Name="fees_reciept_no" />
+    </Key>
+    <Property Name="fees_reciept_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fees_std_id" Type="int" />
+    <Property Name="fees_IssueDate" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fees_Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fees_PaidDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="fees_Payment" Type="float" Nullable="false" />
+    <Property Name="fees_PreviousCharges" Type="float" />
+    <Property Name="fees_TotalAmount" Type="float" Nullable="false" />
+    <Property Name="fees_Remarks" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="result">
+    <Key>
+      <PropertyRef Name="RES_id" />
+    </Key>
+    <Property Name="RES_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RES_class_id" Type="int" />
+    <Property Name="RES_std_id" Type="int" />
+    <Property Name="Exam_type" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="RES_maths_marks" Type="int" />
+    <Property Name="RES_englishliterature_marks" Type="int" />
+    <Property Name="RES_englishgrammar_marks" Type="int" />
+    <Property Name="RES_urdu_marks" Type="int" />
+    <Property Name="RES_islamiyat_marks" Type="int" />
+    <Property Name="RES_Science_marks" Type="int" />
+    <Property Name="RES_Physics_marks" Type="int" />
+    <Property Name="RES_Chemistry_marks" Type="int" />
+    <Property Name="RES_History_marks" Type="int" />
+    <Property Name="RES_Geography_marks" Type="int" />
+    <Property Name="RES_Computer_marks" Type="int" />
+    <Property Name="RES_activity_marks" Type="int" />
+    <Property Name="RES_obtain_marks" Type="int" Nullable="false" />
+    <Property Name="RES_total_marks" Type="int" Nullable="false" />
+    <Property Name="RES_percentage" Type="float" Nullable="false" />
+    <Property Name="RES_grade" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RES_REmarks" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="std_id" />
+    </Key>
+    <Property Name="std_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="std_Fname" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="std_Lname" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="std_Fathername" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="std_Mothername" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="std_gender" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="std_phone" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="std_address" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="std_email" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="std_nationality" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="std_dob" Type="date" Nullable="false" />
+    <Property Name="std_doa" Type="date" Nullable="false" />
+    <Property Name="std_age" Type="int" Nullable="false" />
+    <Property Name="std_religion" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="std_class_id" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tbl_account">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Confirmpassword" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__class_rou__class__0A9D95DB">
+    <End Role="class" Type="Self.class" Multiplicity="0..1" />
+    <End Role="class_routine" Type="Self.class_routine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="class">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="class_routine">
+        <PropertyRef Name="class_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__fees__fees_std_i__1AD3FDA4">
+    <End Role="student" Type="Self.student" Multiplicity="0..1" />
+    <End Role="fees" Type="Self.fees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="std_id" />
+      </Principal>
+      <Dependent Role="fees">
+        <PropertyRef Name="fees_std_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__result__RES_clas__17036CC0">
+    <End Role="class" Type="Self.class" Multiplicity="0..1" />
+    <End Role="result" Type="Self.result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="class">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="result">
+        <PropertyRef Name="RES_class_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__result__RES_std___17F790F9">
+    <End Role="student" Type="Self.student" Multiplicity="0..1" />
+    <End Role="result" Type="Self.result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="std_id" />
+      </Principal>
+      <Dependent Role="result">
+        <PropertyRef Name="RES_std_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__student__std_cla__04E4BC85">
+    <End Role="class" Type="Self.class" Multiplicity="0..1" />
+    <End Role="student" Type="Self.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="class">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="std_class_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="studentmanagementsystem_ModelStoreContainer">
+    <EntitySet Name="class" EntityType="Self.class" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="class_routine" EntityType="Self.class_routine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="fees" EntityType="Self.fees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="result" EntityType="Self.result" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_account" EntityType="Self.tbl_account" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__class_rou__class__0A9D95DB" Association="Self.FK__class_rou__class__0A9D95DB">
+      <End Role="class" EntitySet="class" />
+      <End Role="class_routine" EntitySet="class_routine" />
+    </AssociationSet>
+    <AssociationSet Name="FK__fees__fees_std_i__1AD3FDA4" Association="Self.FK__fees__fees_std_i__1AD3FDA4">
+      <End Role="student" EntitySet="student" />
+      <End Role="fees" EntitySet="fees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__result__RES_clas__17036CC0" Association="Self.FK__result__RES_clas__17036CC0">
+      <End Role="class" EntitySet="class" />
+      <End Role="result" EntitySet="result" />
+    </AssociationSet>
+    <AssociationSet Name="FK__result__RES_std___17F790F9" Association="Self.FK__result__RES_std___17F790F9">
+      <End Role="student" EntitySet="student" />
+      <End Role="result" EntitySet="result" />
+    </AssociationSet>
+    <AssociationSet Name="FK__student__std_cla__04E4BC85" Association="Self.FK__student__std_cla__04E4BC85">
+      <End Role="class" EntitySet="class" />
+      <End Role="student" EntitySet="student" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

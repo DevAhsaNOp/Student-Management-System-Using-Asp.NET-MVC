@@ -1,0 +1,107 @@
+﻿@model Student_Management_System.Context.fee
+
+@{
+    ViewBag.Title = "GenerateFees";
+}
+
+<h2>GenerateFees</h2>
+
+
+@using (Html.BeginForm("Fees", "Fees", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.HiddenFor(model => model.fees_reciept_no)
+            <label>Student Name: </label>
+            @Html.ValidationMessageFor(model => model.fees_std_id, "", new { @class = "text-danger" })
+            <div>
+                @Html.DropDownListFor(model => model.fees_std_id, ViewBag.id as SelectList, "Select Student", new { @class = "form-control", @id = "stdlst" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Issue Date: </label>
+            @Html.ValidationMessageFor(model => model.fees_IssueDate, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.fees_IssueDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+        </div>
+
+        <div class="form-group">
+            <label>Issue Status: </label>
+            @Html.ValidationMessageFor(model => model.fees_Status, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.fees_Status, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Paid Date: </label>
+            @Html.ValidationMessageFor(model => model.fees_PaidDate, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.fees_PaidDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+        </div>
+
+        <div class="form-group">
+            <label>Fees Amount: </label>
+            @Html.ValidationMessageFor(model => model.fees_Payment, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.fees_Payment, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Previous Charges: </label>
+            @Html.ValidationMessageFor(model => model.fees_PreviousCharges, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.fees_PreviousCharges, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Total Amount: </label>
+            @Html.ValidationMessageFor(model => model.fees_TotalAmount, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.fees_TotalAmount, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })
+        </div>
+
+        <div class="form-group">
+            <label>Remarks: </label>
+            @Html.ValidationMessageFor(model => model.fees_Remarks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.fees_Remarks, new { htmlAttributes = new { @class = "form-control" }})
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Generate Fees" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+      integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+            integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(function my() {
+            $("#stdlst").chosen();
+        });
+
+        $(document).ready(function dd() {
+            $(".datepicker").datepicker({
+                dateFormat: "dd/M/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0"
+            });
+        });
+
+        var input = $('[name="fees_Payment"],[name="fees_PreviousCharges"]'),
+            input1 = $('[name="fees_Payment"]'),
+            input2 = $('[name="fees_PreviousCharges"]'),
+            input3 = $('[name="fees_TotalAmount"]');
+        input.change(function () {
+            var val1 = (isNaN(parseInt(input1.val()))) ? 0 : parseInt(input1.val());
+            var val2 = (isNaN(parseInt(input2.val()))) ? 0 : parseInt(input2.val());
+            input3.val(val1 + val2);
+        });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

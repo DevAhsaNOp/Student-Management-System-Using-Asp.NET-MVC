@@ -1,0 +1,6 @@
+﻿@model Student_Management_System.Models.Signup
+
+@if (Session["UserName"] != null)
+{
+    <h1>Welcome @Session["UserName"].ToString()</h1>
+}

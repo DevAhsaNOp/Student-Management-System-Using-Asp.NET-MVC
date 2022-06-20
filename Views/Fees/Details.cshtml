@@ -1,0 +1,145 @@
+﻿@model Student_Management_System.Context.fee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    dt {
+        color: white !important;
+        text-align: left !important;
+        font-size: 18px !important;
+        width: 220px !important;
+    }
+
+    .dl-horizontal dd {
+        margin-left: 200px !important;
+        color: white !important;
+        text-align: left !important;
+        font-size: 18px !important;
+        width: 768px !important;
+    }
+
+    a {
+        color: #d9d9d9 !important;
+    }
+
+        a:hover {
+            color: #fff !important;
+        }
+</style>
+
+<h2>@Html.DisplayFor(model => model.student.std_Fname) @Html.DisplayFor(model => model.student.std_Lname) Fees Detail</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fees_reciept_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fees_reciept_no)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.student.std_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.student.std_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.student.std_Fname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.student.std_Fname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.student.std_Lname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.student.std_Lname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.student.@class.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.student.@class.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.student.@class.section)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.student.@class.section)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fees_IssueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fees_IssueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fees_Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fees_Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fees_PaidDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fees_PaidDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fees_Payment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fees_Payment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fees_PreviousCharges)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fees_PreviousCharges)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fees_TotalAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fees_TotalAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fees_Remarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fees_Remarks)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "FeeList")
+</p>

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Student_Management_System.Context.Joinfee>
+@{
+    ViewBag.Title = "FeeList";
+}
+
+<h2>FeeList</h2>
+
+<div>
+    @using (Html.BeginForm("FeeList", "Fees", FormMethod.Get))
+    {
+        <table>
+            <tr>
+                <td style="color: white !important">
+                    <span><b style="font-size:16px !important">Search By:</b></span>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: white !important">
+                    @Html.RadioButton("searchBy", "StudentFname", true)
+                    <text>Student First name</text> &nbsp;&nbsp;
+                    @Html.RadioButton("searchBy", "StudentLname")
+                    <text>Student Last name</text>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>&nbsp;&nbsp;</div>
+                    <div style="min-width: 100% !important; display: flex !important; ">
+                        @Html.TextBox("searchValue", null, new
+                        {
+                            Class = "form-control",
+                            placeholder = "Enter Class or Section",
+                            style = "min-width: 400px !important" +
+                       ";margin-right: 20px !important; "
+                        })
+                        <input type="submit" value="Search" class="btn btn-warning" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+<br />
+<table>
+    <tr>
+        <td class="tdata">Receipt Id</td>
+        <td class="tdata">Student Id</td>
+        <td class="tdata">Student First name</td>
+        <td class="tdata">Student Last name</td>
+        <td class="tdata">Date of Issue</td>
+        <td class="tdata">Date of Payment</td>
+        <td class="tdata">Amount</td>
+        <td class="tdata">Actions</td>
+    </tr>
+    @if (Model == null)
+    {
+        <tr>No items found</tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td class="tdata">@item.fees_reciept_no</td>
+                <td class="tdata">@item.fees_std_id</td>
+                <td class="tdata">@item.StudentFname</td>
+                <td class="tdata">@item.StudentLname</td>
+                <td class="tdata">@item.fees_IssueDate</td>
+                <td class="tdata">@item.fees_PaidDate</td>
+                <td class="tdata">@item.fees_Payment</td>
+                <td class="tdata">
+                    <a href="@Url.Action("GenerateFees", new {item.fees_reciept_no,item.fees_std_id,
+                            item.fees_IssueDate,item.fees_Status,item.fees_PaidDate,item.fees_Payment,
+                        item.fees_PreviousCharges,item.fees_TotalAmount,item.fees_Remarks})"
+                       class="btn btn-success">Edit</a>
+                    <a href="@Url.Action("Details/"+item.fees_reciept_no+"")"
+                       class="btn btn-info">Details</a>
+                </td>
+
+            </tr>
+        }
+    }
+</table>

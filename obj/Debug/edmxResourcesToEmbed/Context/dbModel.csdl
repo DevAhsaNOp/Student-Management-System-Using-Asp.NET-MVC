@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="studentmanagementsystem_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="class">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="section" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsMaths" Type="Boolean" />
+    <Property Name="IsEnglishLiterature" Type="Boolean" />
+    <Property Name="IsEnglishGrammar" Type="Boolean" />
+    <Property Name="IsUrdu" Type="Boolean" />
+    <Property Name="IsIslamiyat" Type="Boolean" />
+    <Property Name="IsScience" Type="Boolean" />
+    <Property Name="IsPhysics" Type="Boolean" />
+    <Property Name="IsChemistry" Type="Boolean" />
+    <Property Name="IsComputer" Type="Boolean" />
+    <Property Name="IsHistory" Type="Boolean" />
+    <Property Name="IsGeography" Type="Boolean" />
+    <NavigationProperty Name="class_routine" Relationship="Self.FK__class_rou__class__72C60C4A" FromRole="class" ToRole="class_routine" />
+    <NavigationProperty Name="results" Relationship="Self.FK__result__RES_clas__6D0D32F4" FromRole="class" ToRole="result" />
+    <NavigationProperty Name="students" Relationship="Self.FK__student__std_cla__6754599E" FromRole="class" ToRole="student" />
+  </EntityType>
+  <EntityType Name="class_routine">
+    <Key>
+      <PropertyRef Name="rou_id" />
+    </Key>
+    <Property Name="rou_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rou_day" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="class_id" Type="Int32" />
+    <Property Name="IsMaths" Type="Boolean" />
+    <Property Name="IsMathsSlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="IsEnglishLiterature" Type="Boolean" />
+    <Property Name="IsEnglishLiteratureSlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="IsEnglishGrammar" Type="Boolean" />
+    <Property Name="IsEnglishGrammarSlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="IsUrdu" Type="Boolean" />
+    <Property Name="IsUrduSlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="IsIslamiyat" Type="Boolean" />
+    <Property Name="IsIslamiyatSlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="IsScience" Type="Boolean" />
+    <Property Name="IsScienceSlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="IsPhysics" Type="Boolean" />
+    <Property Name="IsPhysicsSlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="IsChemistry" Type="Boolean" />
+    <Property Name="IsChemistrySlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="IsComputer" Type="Boolean" />
+    <Property Name="IsComputerSlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="IsHistory" Type="Boolean" />
+    <Property Name="IsHistorySlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="IsGeography" Type="Boolean" />
+    <Property Name="IsGeographySlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="class" Relationship="Self.FK__class_rou__class__72C60C4A" FromRole="class_routine" ToRole="class" />
+  </EntityType>
+  <EntityType Name="result">
+    <Key>
+      <PropertyRef Name="RES_id" />
+    </Key>
+    <Property Name="RES_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RES_class_id" Type="Int32" />
+    <Property Name="RES_std_id" Type="Int32" />
+    <Property Name="Exam_type" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RES_maths_marks" Type="Int32" />
+    <Property Name="RES_englishliterature_marks" Type="Int32" />
+    <Property Name="RES_englishgrammar_marks" Type="Int32" />
+    <Property Name="RES_urdu_marks" Type="Int32" />
+    <Property Name="RES_islamiyat_marks" Type="Int32" />
+    <Property Name="RES_Science_marks" Type="Int32" />
+    <Property Name="RES_Physics_marks" Type="Int32" />
+    <Property Name="RES_Chemistry_marks" Type="Int32" />
+    <Property Name="RES_History_marks" Type="Int32" />
+    <Property Name="RES_Geography_marks" Type="Int32" />
+    <Property Name="RES_Computer_marks" Type="Int32" />
+    <Property Name="RES_activity_marks" Type="Int32" />
+    <Property Name="RES_total_marks" Type="Int32" Nullable="false" />
+    <Property Name="RES_percentage" Type="Double" Nullable="false" />
+    <Property Name="RES_grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RES_REmarks" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="class" Relationship="Self.FK__result__RES_clas__6D0D32F4" FromRole="result" ToRole="class" />
+    <NavigationProperty Name="student" Relationship="Self.FK__result__RES_std___6E01572D" FromRole="result" ToRole="student" />
+    <Property Name="RES_obtain_marks" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="std_id" />
+    </Key>
+    <Property Name="std_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="std_Fname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="std_Lname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="std_Fathername" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="std_Mothername" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="std_gender" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="std_phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="std_address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="std_email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="std_nationality" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="std_dob" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="std_doa" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="std_age" Type="Int32" Nullable="false" />
+    <Property Name="std_religion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="std_class_id" Type="Int32" />
+    <NavigationProperty Name="class" Relationship="Self.FK__student__std_cla__6754599E" FromRole="student" ToRole="class" />
+    <NavigationProperty Name="results" Relationship="Self.FK__result__RES_std___6E01572D" FromRole="student" ToRole="result" />
+    <NavigationProperty Name="fees" Relationship="studentmanagementsystem_Model.FK__fees__fees_std_i__1AD3FDA4" FromRole="student" ToRole="fee" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_account">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Confirmpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK__class_rou__class__72C60C4A">
+    <End Role="class" Type="Self.class" Multiplicity="0..1" />
+    <End Role="class_routine" Type="Self.class_routine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="class">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="class_routine">
+        <PropertyRef Name="class_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__result__RES_clas__6D0D32F4">
+    <End Role="class" Type="Self.class" Multiplicity="0..1" />
+    <End Role="result" Type="Self.result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="class">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="result">
+        <PropertyRef Name="RES_class_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__student__std_cla__6754599E">
+    <End Role="class" Type="Self.class" Multiplicity="0..1" />
+    <End Role="student" Type="Self.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="class">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="std_class_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__result__RES_std___6E01572D">
+    <End Role="student" Type="Self.student" Multiplicity="0..1" />
+    <End Role="result" Type="Self.result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="std_id" />
+      </Principal>
+      <Dependent Role="result">
+        <PropertyRef Name="RES_std_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="studentmanagementsystem_Entities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="classes" EntityType="Self.class" />
+    <EntitySet Name="class_routine" EntityType="Self.class_routine" />
+    <EntitySet Name="results" EntityType="Self.result" />
+    <EntitySet Name="students" EntityType="Self.student" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tbl_account" EntityType="Self.tbl_account" />
+    <AssociationSet Name="FK__class_rou__class__72C60C4A" Association="Self.FK__class_rou__class__72C60C4A">
+      <End Role="class" EntitySet="classes" />
+      <End Role="class_routine" EntitySet="class_routine" />
+    </AssociationSet>
+    <AssociationSet Name="FK__result__RES_clas__6D0D32F4" Association="Self.FK__result__RES_clas__6D0D32F4">
+      <End Role="class" EntitySet="classes" />
+      <End Role="result" EntitySet="results" />
+    </AssociationSet>
+    <AssociationSet Name="FK__student__std_cla__6754599E" Association="Self.FK__student__std_cla__6754599E">
+      <End Role="class" EntitySet="classes" />
+      <End Role="student" EntitySet="students" />
+    </AssociationSet>
+    <AssociationSet Name="FK__result__RES_std___6E01572D" Association="Self.FK__result__RES_std___6E01572D">
+      <End Role="student" EntitySet="students" />
+      <End Role="result" EntitySet="results" />
+    </AssociationSet>
+    <EntitySet Name="fees" EntityType="studentmanagementsystem_Model.fee" />
+    <AssociationSet Name="FK__fees__fees_std_i__1AD3FDA4" Association="studentmanagementsystem_Model.FK__fees__fees_std_i__1AD3FDA4">
+      <End Role="student" EntitySet="students" />
+      <End Role="fee" EntitySet="fees" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="fee">
+    <Key>
+      <PropertyRef Name="fees_reciept_no" />
+    </Key>
+    <Property Name="fees_reciept_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fees_std_id" Type="Int32" />
+    <Property Name="fees_IssueDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fees_Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fees_PaidDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fees_Payment" Type="Double" Nullable="false" />
+    <Property Name="fees_PreviousCharges" Type="Double" />
+    <Property Name="fees_TotalAmount" Type="Double" Nullable="false" />
+    <Property Name="fees_Remarks" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="student" Relationship="studentmanagementsystem_Model.FK__fees__fees_std_i__1AD3FDA4" FromRole="fee" ToRole="student" />
+  </EntityType>
+  <Association Name="FK__fees__fees_std_i__1AD3FDA4">
+    <End Type="studentmanagementsystem_Model.student" Role="student" Multiplicity="0..1" />
+    <End Type="studentmanagementsystem_Model.fee" Role="fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="std_id" />
+      </Principal>
+      <Dependent Role="fee">
+        <PropertyRef Name="fees_std_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

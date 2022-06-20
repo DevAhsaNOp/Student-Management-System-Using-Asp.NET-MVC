@@ -1,0 +1,127 @@
+﻿@model Student_Management_System.Context.student
+
+@{
+    ViewBag.Title = "AddStudent";
+}
+
+<h2>Add Student</h2>
+
+
+@using (Html.BeginForm("AddStudent", "Student", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.HiddenFor(model => model.std_id)
+            <label>First Name: </label>
+            @Html.ValidationMessageFor(model => model.std_Fname, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.std_Fname, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Last Name: </label>
+            @Html.ValidationMessageFor(model => model.std_Lname, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.std_Lname, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Father Name: </label>
+            @Html.ValidationMessageFor(model => model.std_Fathername, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.std_Fathername, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Mother Name: </label>
+            @Html.ValidationMessageFor(model => model.std_Mothername, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.std_Mothername, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Gender: </label>
+            @Html.ValidationMessageFor(model => model.std_gender, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.std_gender, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Phone Number: </label>
+            @Html.ValidationMessageFor(model => model.std_phone, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.std_phone, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Home Address: </label>
+            @Html.ValidationMessageFor(model => model.std_address, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.std_address, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Email Address: </label>
+            @Html.ValidationMessageFor(model => model.std_email, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.std_email, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Nationality: </label>
+            @Html.ValidationMessageFor(model => model.std_nationality, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.std_nationality, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Date of Birth: </label>
+            @Html.ValidationMessageFor(model => model.std_dob, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.std_dob, new { htmlAttributes = new { @class = "form-control datepicker" } })
+        </div>
+
+        <div class="form-group">
+            <label>Date of Admission: </label>
+            @Html.ValidationMessageFor(model => model.std_doa, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.std_doa, new { htmlAttributes = new { @class = "form-control datepicker" } })
+        </div>
+
+        <div class="form-group">
+            <label>Age: </label>
+            @Html.ValidationMessageFor(model => model.std_age, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.std_age, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Religion: </label>
+            @Html.ValidationMessageFor(model => model.std_religion, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.std_religion, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <label>Class Name: </label>
+            @Html.ValidationMessageFor(model => model.std_class_id, "", new { @class = "text-danger" })
+            @Html.DropDownListFor(model => model.std_class_id, ViewBag.id as MultiSelectList, "---Select Class---", new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Add Student" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+      integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+            integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            $(".datepicker").datepicker({
+                dateFormat: "yy/M/dd",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0"
+            });
+        });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

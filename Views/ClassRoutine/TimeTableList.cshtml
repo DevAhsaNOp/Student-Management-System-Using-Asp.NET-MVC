@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Student_Management_System.Context.JoinTimeTable>
+@{
+    ViewBag.Title = "TimeTableList";
+}
+
+<h2>Time Table List</h2>
+
+<div>
+    @using (Html.BeginForm("TimeTableList", "ClassRoutine", FormMethod.Get))
+    {
+        <table>
+            <tr>
+                <td style="color: white !important">
+                    <span><b style="font-size:16px !important">Search By:</b></span>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: white !important">
+                    @Html.RadioButton("searchBy", "rou_day", true)
+                    <text>Day</text> &nbsp;&nbsp;
+                    @Html.RadioButton("searchBy", "classname")
+                    <text>Class</text>&nbsp;&nbsp;
+                    @Html.RadioButton("searchBy", "section")
+                    <text>Section</text>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>&nbsp;&nbsp;</div>
+                    <div style="min-width: 100% !important; display: flex !important; ">
+                        @Html.TextBox("searchValue", null, new
+                        {
+                            Class = "form-control",
+                            placeholder = "Enter Class or Section",
+                            style = "min-width: 400px !important" +
+                       ";margin-right: 20px !important; "
+                        })
+                        <input type="submit" value="Search" class="btn btn-warning" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+<br />
+<table>
+    <tr>
+        <td class="tdata">Time Table Id</td>
+        <td class="tdata">Day</td>
+        <td class="tdata">Class</td>
+        <td class="tdata">Section</td>
+        <td class="tdata">Actions</td>
+    </tr>
+    @if (Model == null)
+    {
+        <tr>No items found</tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td class="tdata">@item.rou_id</td>
+                <td class="tdata">@item.rou_day</td>
+                <td class="tdata">@item.ClassName</td>
+                <td class="tdata">@item.ClassSection</td>
+                <td class="tdata">
+                    <a href="@Url.Action("AddTimeTable", new {item.rou_id,item.rou_day,item.class_id
+                     ,item.IsMaths,item.IsMathsSlot,item.IsEnglishLiterature,item.IsEnglishLiteratureSlot
+                     ,item.IsEnglishGrammar,item.IsEnglishGrammarSlot,item.IsUrdu,item.IsUrduSlot,
+                     item.IsIslamiyat,item.IsIslamiyatSlot,item.IsScience,item.IsScienceSlot
+                    ,item.IsPhysics,item.IsPhysicsSlot,item.IsChemistry,item.IsChemistrySlot,
+                            item.IsComputer,item.IsComputerSlot,item.IsHistory,item.IsHistorySlot
+                    ,item.IsGeography,item.IsGeographySlot})"
+                       class="btn btn-success">Edit</a>
+                    <a href="@Url.Action("Details/"+item.rou_id+"")"
+                       class="btn btn-info">Details</a>
+                </td>
+            </tr>
+        }
+    }
+</table>

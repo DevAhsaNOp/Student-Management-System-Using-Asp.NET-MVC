@@ -1,0 +1,190 @@
+﻿@model Student_Management_System.Context.result
+
+@{
+    ViewBag.Title = "AddResult";
+}
+
+<h2>Add Result</h2>
+
+
+@using (Html.BeginForm("Result", "Result", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>result</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.HiddenFor(model => model.RES_id)
+            @Html.LabelFor(model => model.RES_class_id, "RES_class_id")
+            @Html.ValidationMessageFor(model => model.RES_class_id, "", new { @class = "text-danger" })
+            <div>
+                @Html.DropDownListFor(model => model.RES_class_id, ViewBag.classname as MultiSelectList, "---Select Class---", new { @class = "form-control lst" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_std_id, "RES_std_id")
+            @Html.ValidationMessageFor(model => model.RES_std_id, "", new { @class = "text-danger" })
+            <div>
+                @Html.DropDownListFor(model => model.RES_std_id, ViewBag.std as SelectList, "Select Student", new { @class = "form-control lst" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Exam_type)
+            @Html.ValidationMessageFor(model => model.Exam_type, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Exam_type, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_maths_marks)
+            @Html.ValidationMessageFor(model => model.RES_maths_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_maths_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_englishliterature_marks)
+            @Html.ValidationMessageFor(model => model.RES_englishliterature_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_englishliterature_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_englishgrammar_marks)
+            @Html.ValidationMessageFor(model => model.RES_englishgrammar_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_englishgrammar_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_urdu_marks)
+            @Html.ValidationMessageFor(model => model.RES_urdu_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_urdu_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_islamiyat_marks)
+            @Html.ValidationMessageFor(model => model.RES_islamiyat_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_islamiyat_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_Science_marks)
+            @Html.ValidationMessageFor(model => model.RES_Science_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_Science_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_Physics_marks)
+            @Html.ValidationMessageFor(model => model.RES_Physics_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_Physics_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_Chemistry_marks)
+            @Html.ValidationMessageFor(model => model.RES_Chemistry_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_Chemistry_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_History_marks)
+            @Html.ValidationMessageFor(model => model.RES_History_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_History_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_Geography_marks)
+            @Html.ValidationMessageFor(model => model.RES_Geography_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_Geography_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_Computer_marks)
+            @Html.ValidationMessageFor(model => model.RES_Computer_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_Computer_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_activity_marks)
+            @Html.ValidationMessageFor(model => model.RES_activity_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_activity_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_obtain_marks)
+            @Html.ValidationMessageFor(model => model.RES_obtain_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_obtain_marks, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_total_marks)
+            @Html.ValidationMessageFor(model => model.RES_total_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_total_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <input type="button" value="Create" onclick="location.href='@Url.Action("CalCulate", "Result")'" />
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_percentage)
+            @Html.ValidationMessageFor(model => model.RES_percentage, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_percentage, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_grade)
+            @Html.ValidationMessageFor(model => model.RES_grade, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_grade, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_REmarks)
+            @Html.ValidationMessageFor(model => model.RES_REmarks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_REmarks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Add Result" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        $(function my() {
+            $(".lst").chosen();
+        });
+
+        var input = $('[name="RES_maths_marks"],[name="RES_englishliterature_marks"],[name="RES_englishgrammar_marks"],[name="RES_urdu_marks"],[name="RES_islamiyat_marks"],[name="RES_Science_marks"],[name="RES_Physics_marks"],[name="RES_Science_marks"],[name="RES_Chemistry_marks"],[name="RES_History_marks"],[name="RES_Geography_marks"],[name="RES_Computer_marks"],[name="RES_activity_marks"]'),
+            input1 = $('[name="RES_maths_marks"]'),
+            input2 = $('[name="RES_englishliterature_marks"]'),
+            input3 = $('[name="RES_englishgrammar_marks"]'),
+            input4 = $('[name="RES_urdu_marks"]'),
+            input5 = $('[name="RES_islamiyat_marks"]'),
+            input6 = $('[name="RES_Science_marks"]'),
+            input7 = $('[name="RES_Physics_marks"]'),
+            input8 = $('[name="RES_Chemistry_marks"]'),
+            input9 = $('[name="RES_History_marks"]'),
+            input10 = $('[name="RES_Geography_marks"]'),
+            input11 = $('[name="RES_Computer_marks"]'),
+            input12 = $('[name="RES_activity_marks"]'),
+            input13 = $('[name="RES_obtain_marks"]');
+        input.change(function () {
+            var val1 = (isNaN(parseInt(input1.val()))) ? 0 : parseInt(input1.val());
+            var val2 = (isNaN(parseInt(input2.val()))) ? 0 : parseInt(input2.val());
+            var val3 = (isNaN(parseInt(input3.val()))) ? 0 : parseInt(input3.val());
+            var val4 = (isNaN(parseInt(input4.val()))) ? 0 : parseInt(input4.val());
+            var val5 = (isNaN(parseInt(input5.val()))) ? 0 : parseInt(input5.val());
+            var val6 = (isNaN(parseInt(input6.val()))) ? 0 : parseInt(input6.val());
+            var val7 = (isNaN(parseInt(input7.val()))) ? 0 : parseInt(input7.val());
+            var val8 = (isNaN(parseInt(input8.val()))) ? 0 : parseInt(input8.val());
+            var val9 = (isNaN(parseInt(input9.val()))) ? 0 : parseInt(input9.val());
+            var val10 = (isNaN(parseInt(input10.val()))) ? 0 : parseInt(input10.val());
+            var val11 = (isNaN(parseInt(input11.val()))) ? 0 : parseInt(input11.val());
+            var val12 = (isNaN(parseInt(input12.val()))) ? 0 : parseInt(input12.val());
+            input13.val(val1 + val2 + val3 + val4 + val5 + val6 + val7 + val8 + val9 + val10 + val11 + val12);
+        });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

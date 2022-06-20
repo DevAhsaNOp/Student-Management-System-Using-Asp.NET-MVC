@@ -1,0 +1,500 @@
+﻿@model Student_Management_System.Context.class_routine
+
+@{
+    ViewBag.Title = "AddTimeTable";
+}
+
+<style>
+    a {
+        color: #d9d9d9 !important;
+    }
+
+        a:hover {
+            color: #fff !important;
+        }
+</style>
+
+<h2>Add TimeTable</h2>
+
+
+@using (Html.BeginForm("TimeTable", "ClassRoutine", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.HiddenFor(model => model.rou_id)
+            @Html.LabelFor(model => model.rou_day)
+            @Html.ValidationMessageFor(model => model.rou_day, "", new { @class = "text-danger" })
+            @Html.DropDownListFor(m => m.rou_day,
+                new SelectList(Enum.GetValues(typeof(DayOfWeek))),
+            "Select Option", new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.class_id)
+            @Html.ValidationMessageFor(model => model.class_id, "", new { @class = "text-danger" })
+            @Html.DropDownListFor(model => model.class_id, ViewBag.id as MultiSelectList, "---Select Class---", new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsMaths)
+            <div class="checkbox">
+                @if (Model.IsMaths == null)
+                {
+                    @Html.DropDownListFor(m => m.IsMaths,
+                        new List<SelectListItem>
+                        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+                            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+                        },
+                    "Select Option", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IsMaths, "", new { @class = "text-danger" })
+                }
+                else if (Model.IsMaths.Value == true)
+                {
+                    @Html.DropDownListFor(m => m.IsMaths,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true" , Selected = true},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+                else
+                {
+                    @Html.DropDownListFor(m => m.IsMaths,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false", Selected = true}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsMathsSlot)
+            @Html.EditorFor(model => model.IsMathsSlot, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.IsMathsSlot, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsEnglishLiterature)
+            <div class="checkbox">
+                @if (Model.IsEnglishLiterature == null)
+                {
+                    @Html.DropDownListFor(m => m.IsEnglishLiterature,
+                        new List<SelectListItem>
+                        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+                            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+                        },
+                    "Select Option", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IsEnglishLiterature, "", new { @class = "text-danger" })
+                }
+                else if (Model.IsEnglishLiterature.Value == true)
+                {
+                    @Html.DropDownListFor(m => m.IsEnglishLiterature,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true" , Selected = true},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+                else
+                {
+                    @Html.DropDownListFor(m => m.IsEnglishLiterature,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false", Selected = true}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsEnglishLiteratureSlot)
+            @Html.EditorFor(model => model.IsEnglishLiteratureSlot, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.IsEnglishLiteratureSlot, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsEnglishGrammar)
+            <div class="checkbox">
+                @if (Model.IsEnglishGrammar == null)
+                {
+                    @Html.DropDownListFor(m => m.IsEnglishGrammar,
+                        new List<SelectListItem>
+                        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+                            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+                        },
+                    "Select Option", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IsEnglishGrammar, "", new { @class = "text-danger" })
+                }
+                else if (Model.IsEnglishGrammar.Value == true)
+                {
+                    @Html.DropDownListFor(m => m.IsEnglishGrammar,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true" , Selected = true},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+                else
+                {
+                    @Html.DropDownListFor(m => m.IsEnglishGrammar,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false", Selected = true}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsEnglishGrammarSlot)
+            @Html.EditorFor(model => model.IsEnglishGrammarSlot, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.IsEnglishGrammarSlot, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsUrdu)
+            <div class="checkbox">
+                @if (Model.IsUrdu == null)
+                {
+                    @Html.DropDownListFor(m => m.IsUrdu,
+                        new List<SelectListItem>
+                        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+                            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+                        },
+                    "Select Option", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IsUrdu, "", new { @class = "text-danger" })
+                }
+                else if (Model.IsUrdu.Value == true)
+                {
+                    @Html.DropDownListFor(m => m.IsUrdu,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true" , Selected = true},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+                else
+                {
+                    @Html.DropDownListFor(m => m.IsUrdu,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false", Selected = true}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsUrduSlot)
+            @Html.EditorFor(model => model.IsUrduSlot, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.IsUrduSlot, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsIslamiyat)
+            <div class="checkbox">
+                @if (Model.IsIslamiyat == null)
+                {
+                    @Html.DropDownListFor(m => m.IsIslamiyat,
+                        new List<SelectListItem>
+                        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+                            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+                        },
+                    "Select Option", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IsIslamiyat, "", new { @class = "text-danger" })
+                }
+                else if (Model.IsIslamiyat.Value == true)
+                {
+                    @Html.DropDownListFor(m => m.IsIslamiyat,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true" , Selected = true},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+                else
+                {
+                    @Html.DropDownListFor(m => m.IsIslamiyat,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false", Selected = true}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsIslamiyatSlot)
+            @Html.EditorFor(model => model.IsIslamiyatSlot, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.IsIslamiyatSlot, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsScience)
+            <div class="checkbox">
+                @if (Model.IsScience == null)
+                {
+                    @Html.DropDownListFor(m => m.IsScience,
+                        new List<SelectListItem>
+                        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+                            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+                        },
+                    "Select Option", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IsScience, "", new { @class = "text-danger" })
+                }
+                else if (Model.IsScience.Value == true)
+                {
+                    @Html.DropDownListFor(m => m.IsScience,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true" , Selected = true},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+                else
+                {
+                    @Html.DropDownListFor(m => m.IsScience,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false", Selected = true}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsScienceSlot)
+            @Html.EditorFor(model => model.IsScienceSlot, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.IsScienceSlot, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsPhysics)
+            <div class="checkbox">
+                @if (Model.IsPhysics == null)
+                {
+                    @Html.DropDownListFor(m => m.IsPhysics,
+                        new List<SelectListItem>
+                        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+                            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+                        },
+                    "Select Option", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IsPhysics, "", new { @class = "text-danger" })
+                }
+                else if (Model.IsPhysics.Value == true)
+                {
+                    @Html.DropDownListFor(m => m.IsPhysics,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true" , Selected = true},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+                else
+                {
+                    @Html.DropDownListFor(m => m.IsPhysics,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false", Selected = true}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsPhysicsSlot)
+            @Html.EditorFor(model => model.IsPhysicsSlot, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.IsPhysicsSlot, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsChemistry)
+            <div class="checkbox">
+                @if (Model.IsChemistry == null)
+                {
+                    @Html.DropDownListFor(m => m.IsChemistry,
+                        new List<SelectListItem>
+                        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+                            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+                        },
+                    "Select Option", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IsChemistry, "", new { @class = "text-danger" })
+                }
+                else if (Model.IsChemistry.Value == true)
+                {
+                    @Html.DropDownListFor(m => m.IsChemistry,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true" , Selected = true},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+                else
+                {
+                    @Html.DropDownListFor(m => m.IsChemistry,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false", Selected = true}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsChemistrySlot)
+            @Html.EditorFor(model => model.IsChemistrySlot, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.IsChemistrySlot, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsComputer)
+            <div class="checkbox">
+                @if (Model.IsComputer == null)
+                {
+                    @Html.DropDownListFor(m => m.IsComputer,
+                        new List<SelectListItem>
+                        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+                            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+                        },
+                    "Select Option", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IsComputer, "", new { @class = "text-danger" })
+                }
+                else if (Model.IsComputer.Value == true)
+                {
+                    @Html.DropDownListFor(m => m.IsComputer,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true" , Selected = true},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+                else
+                {
+                    @Html.DropDownListFor(m => m.IsComputer,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false", Selected = true}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsComputerSlot)
+            @Html.EditorFor(model => model.IsComputerSlot, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.IsComputerSlot, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsHistory)
+            <div class="checkbox">
+                @if (Model.IsHistory == null)
+                {
+                    @Html.DropDownListFor(m => m.IsHistory,
+                        new List<SelectListItem>
+                        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+                            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+                        },
+                    "Select Option", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IsHistory, "", new { @class = "text-danger" })
+                }
+                else if (Model.IsHistory.Value == true)
+                {
+                    @Html.DropDownListFor(m => m.IsHistory,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true" , Selected = true},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+                else
+                {
+                    @Html.DropDownListFor(m => m.IsHistory,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false", Selected = true}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsHistorySlot)
+            @Html.EditorFor(model => model.IsHistorySlot, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.IsHistorySlot, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsGeography)
+            <div class="checkbox">
+                @if (Model.IsGeography == null)
+                {
+                    @Html.DropDownListFor(m => m.IsGeography,
+                        new List<SelectListItem>
+                        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+                            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+                        },
+                    "Select Option", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IsGeography, "", new { @class = "text-danger" })
+                }
+                else if (Model.IsGeography.Value == true)
+                {
+                    @Html.DropDownListFor(m => m.IsGeography,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true" , Selected = true},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false"}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+                else
+                {
+                    @Html.DropDownListFor(m => m.IsGeography,
+        new List<SelectListItem>
+        { new SelectListItem { Text = "Yes student can learn this subject", Value = "true"},
+            new SelectListItem { Text = "No student can't learn this subject", Value = "false", Selected = true}
+        },
+    "Select Option", new { @class = "form-control" })
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsGeographySlot)
+            @Html.EditorFor(model => model.IsGeographySlot, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.IsGeographySlot, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Add Timetable" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "TimeTableList")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

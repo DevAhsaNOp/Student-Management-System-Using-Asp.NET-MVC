@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Student_Management_System.Context.JoinClass>
+
+@{
+    ViewBag.Title = "StudentList";
+}
+
+<h2>StudentList</h2>
+<div>
+    @using (Html.BeginForm("StudentList", "Student", FormMethod.Get))
+    {
+        <table>
+            <tr>
+                <td style="color: white !important">
+                    <span><b style="font-size:16px !important">Search By:</b></span>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: white !important">
+                    @Html.RadioButton("searchBy", "std_Fname", true)
+                    <text>First Name</text> &nbsp;&nbsp;
+                    @Html.RadioButton("searchBy", "std_phone")
+                    <text>Phone Number</text>&nbsp;&nbsp;
+                    @Html.RadioButton("searchBy", "classname")
+                    <text>Class</text>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>&nbsp;&nbsp;</div>
+                    <div style="min-width: 100% !important; display: flex !important; ">
+                        @Html.TextBox("searchValue", null, new
+                        {
+                            Class = "form-control",
+                            placeholder = "Enter Firstname or Phone Number or Class",
+                            style = "min-width: 400px !important" +
+                       ";margin-right: 20px !important; "
+                        })
+                        <input type="submit" value="Search" class="btn btn-warning" />
+                    </div>
+                </td>
+            </tr>
+            @*<tr>
+                    <td>
+                        <div>&nbsp;&nbsp;</div>
+                        <input type="submit" value="Search" class="btn btn-success" />
+                    </td>
+                </tr>*@
+        </table>
+    }
+</div>
+<br />
+<table>
+    <tr>
+        <td class="tdata">Student Id</td>
+        <td class="tdata">First Name</td>
+        <td class="tdata">Last Name</td>
+        <td class="tdata">Father Name</td>
+        <td class="tdata">Mother Name</td>
+        <td class="tdata">Phone Number</td>
+        <td class="tdata">Class</td>
+        <td class="tdata">Section</td>
+        <td class="tdata">Actions</td>
+    </tr>
+    @if (Model == null)
+    {
+        <tr>No items found</tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td class="tdata">@item.std_id</td>
+                <td class="tdata">@item.std_Fname</td>
+                <td class="tdata">@item.std_Lname</td>
+                <td class="tdata">@item.std_Fathername</td>
+                <td class="tdata">@item.std_Mothername</td>
+                <td class="tdata">@item.std_phone</td>
+                <td class="tdata">@item.ClassName</td>
+                <td class="tdata">@item.Section</td>
+                <td class="tdata">
+                    <a href="@Url.Action("Student", new {item.std_id,item.std_Fname,item.std_Lname,item.std_Fathername,item.std_Mothername,item.std_gender,item.std_phone,item.std_address,item.std_email
+                    ,item.std_nationality,item.std_dob,item.std_doa,item.std_age,item.std_religion,item.std_class_id})"
+                       class="btn btn-success">Edit</a>
+                    <a href="@Url.Action("Details/"+item.std_id+"")"
+                       class="btn btn-info">Details</a>
+                </td>
+
+            </tr>
+        }
+    }
+</table>

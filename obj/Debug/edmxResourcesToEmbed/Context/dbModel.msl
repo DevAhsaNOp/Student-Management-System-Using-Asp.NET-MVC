@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="studentmanagementsystem_ModelStoreContainer" CdmEntityContainer="studentmanagementsystem_Entities1">
+    <EntitySetMapping Name="classes">
+      <EntityTypeMapping TypeName="studentmanagementsystem_Model.class">
+        <MappingFragment StoreEntitySet="class">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="section" ColumnName="section" />
+          <ScalarProperty Name="IsMaths" ColumnName="IsMaths" />
+          <ScalarProperty Name="IsEnglishLiterature" ColumnName="IsEnglishLiterature" />
+          <ScalarProperty Name="IsEnglishGrammar" ColumnName="IsEnglishGrammar" />
+          <ScalarProperty Name="IsUrdu" ColumnName="IsUrdu" />
+          <ScalarProperty Name="IsIslamiyat" ColumnName="IsIslamiyat" />
+          <ScalarProperty Name="IsScience" ColumnName="IsScience" />
+          <ScalarProperty Name="IsPhysics" ColumnName="IsPhysics" />
+          <ScalarProperty Name="IsChemistry" ColumnName="IsChemistry" />
+          <ScalarProperty Name="IsComputer" ColumnName="IsComputer" />
+          <ScalarProperty Name="IsHistory" ColumnName="IsHistory" />
+          <ScalarProperty Name="IsGeography" ColumnName="IsGeography" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="class_routine">
+      <EntityTypeMapping TypeName="studentmanagementsystem_Model.class_routine">
+        <MappingFragment StoreEntitySet="class_routine">
+          <ScalarProperty Name="rou_id" ColumnName="rou_id" />
+          <ScalarProperty Name="rou_day" ColumnName="rou_day" />
+          <ScalarProperty Name="class_id" ColumnName="class_id" />
+          <ScalarProperty Name="IsMaths" ColumnName="IsMaths" />
+          <ScalarProperty Name="IsMathsSlot" ColumnName="IsMathsSlot" />
+          <ScalarProperty Name="IsEnglishLiterature" ColumnName="IsEnglishLiterature" />
+          <ScalarProperty Name="IsEnglishLiteratureSlot" ColumnName="IsEnglishLiteratureSlot" />
+          <ScalarProperty Name="IsEnglishGrammar" ColumnName="IsEnglishGrammar" />
+          <ScalarProperty Name="IsEnglishGrammarSlot" ColumnName="IsEnglishGrammarSlot" />
+          <ScalarProperty Name="IsUrdu" ColumnName="IsUrdu" />
+          <ScalarProperty Name="IsUrduSlot" ColumnName="IsUrduSlot" />
+          <ScalarProperty Name="IsIslamiyat" ColumnName="IsIslamiyat" />
+          <ScalarProperty Name="IsIslamiyatSlot" ColumnName="IsIslamiyatSlot" />
+          <ScalarProperty Name="IsScience" ColumnName="IsScience" />
+          <ScalarProperty Name="IsScienceSlot" ColumnName="IsScienceSlot" />
+          <ScalarProperty Name="IsPhysics" ColumnName="IsPhysics" />
+          <ScalarProperty Name="IsPhysicsSlot" ColumnName="IsPhysicsSlot" />
+          <ScalarProperty Name="IsChemistry" ColumnName="IsChemistry" />
+          <ScalarProperty Name="IsChemistrySlot" ColumnName="IsChemistrySlot" />
+          <ScalarProperty Name="IsComputer" ColumnName="IsComputer" />
+          <ScalarProperty Name="IsComputerSlot" ColumnName="IsComputerSlot" />
+          <ScalarProperty Name="IsHistory" ColumnName="IsHistory" />
+          <ScalarProperty Name="IsHistorySlot" ColumnName="IsHistorySlot" />
+          <ScalarProperty Name="IsGeography" ColumnName="IsGeography" />
+          <ScalarProperty Name="IsGeographySlot" ColumnName="IsGeographySlot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="results">
+      <EntityTypeMapping TypeName="studentmanagementsystem_Model.result">
+        <MappingFragment StoreEntitySet="result">
+          <ScalarProperty Name="RES_obtain_marks" ColumnName="RES_obtain_marks" />
+          <ScalarProperty Name="RES_id" ColumnName="RES_id" />
+          <ScalarProperty Name="RES_class_id" ColumnName="RES_class_id" />
+          <ScalarProperty Name="RES_std_id" ColumnName="RES_std_id" />
+          <ScalarProperty Name="Exam_type" ColumnName="Exam_type" />
+          <ScalarProperty Name="RES_maths_marks" ColumnName="RES_maths_marks" />
+          <ScalarProperty Name="RES_englishliterature_marks" ColumnName="RES_englishliterature_marks" />
+          <ScalarProperty Name="RES_englishgrammar_marks" ColumnName="RES_englishgrammar_marks" />
+          <ScalarProperty Name="RES_urdu_marks" ColumnName="RES_urdu_marks" />
+          <ScalarProperty Name="RES_islamiyat_marks" ColumnName="RES_islamiyat_marks" />
+          <ScalarProperty Name="RES_Science_marks" ColumnName="RES_Science_marks" />
+          <ScalarProperty Name="RES_Physics_marks" ColumnName="RES_Physics_marks" />
+          <ScalarProperty Name="RES_Chemistry_marks" ColumnName="RES_Chemistry_marks" />
+          <ScalarProperty Name="RES_History_marks" ColumnName="RES_History_marks" />
+          <ScalarProperty Name="RES_Geography_marks" ColumnName="RES_Geography_marks" />
+          <ScalarProperty Name="RES_Computer_marks" ColumnName="RES_Computer_marks" />
+          <ScalarProperty Name="RES_activity_marks" ColumnName="RES_activity_marks" />
+          <ScalarProperty Name="RES_total_marks" ColumnName="RES_total_marks" />
+          <ScalarProperty Name="RES_percentage" ColumnName="RES_percentage" />
+          <ScalarProperty Name="RES_grade" ColumnName="RES_grade" />
+          <ScalarProperty Name="RES_REmarks" ColumnName="RES_REmarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="students">
+      <EntityTypeMapping TypeName="studentmanagementsystem_Model.student">
+        <MappingFragment StoreEntitySet="student">
+          <ScalarProperty Name="std_id" ColumnName="std_id" />
+          <ScalarProperty Name="std_Fname" ColumnName="std_Fname" />
+          <ScalarProperty Name="std_Lname" ColumnName="std_Lname" />
+          <ScalarProperty Name="std_Fathername" ColumnName="std_Fathername" />
+          <ScalarProperty Name="std_Mothername" ColumnName="std_Mothername" />
+          <ScalarProperty Name="std_gender" ColumnName="std_gender" />
+          <ScalarProperty Name="std_phone" ColumnName="std_phone" />
+          <ScalarProperty Name="std_address" ColumnName="std_address" />
+          <ScalarProperty Name="std_email" ColumnName="std_email" />
+          <ScalarProperty Name="std_nationality" ColumnName="std_nationality" />
+          <ScalarProperty Name="std_dob" ColumnName="std_dob" />
+          <ScalarProperty Name="std_doa" ColumnName="std_doa" />
+          <ScalarProperty Name="std_age" ColumnName="std_age" />
+          <ScalarProperty Name="std_religion" ColumnName="std_religion" />
+          <ScalarProperty Name="std_class_id" ColumnName="std_class_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="studentmanagementsystem_Model.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_account">
+      <EntityTypeMapping TypeName="studentmanagementsystem_Model.tbl_account">
+        <MappingFragment StoreEntitySet="tbl_account">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="Confirmpassword" ColumnName="Confirmpassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fees">
+      <EntityTypeMapping TypeName="studentmanagementsystem_Model.fee">
+        <MappingFragment StoreEntitySet="fees">
+          <ScalarProperty Name="fees_Remarks" ColumnName="fees_Remarks" />
+          <ScalarProperty Name="fees_TotalAmount" ColumnName="fees_TotalAmount" />
+          <ScalarProperty Name="fees_PreviousCharges" ColumnName="fees_PreviousCharges" />
+          <ScalarProperty Name="fees_Payment" ColumnName="fees_Payment" />
+          <ScalarProperty Name="fees_PaidDate" ColumnName="fees_PaidDate" />
+          <ScalarProperty Name="fees_Status" ColumnName="fees_Status" />
+          <ScalarProperty Name="fees_IssueDate" ColumnName="fees_IssueDate" />
+          <ScalarProperty Name="fees_std_id" ColumnName="fees_std_id" />
+          <ScalarProperty Name="fees_reciept_no" ColumnName="fees_reciept_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

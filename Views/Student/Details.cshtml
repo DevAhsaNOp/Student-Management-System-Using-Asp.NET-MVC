@@ -1,0 +1,166 @@
+﻿@model Student_Management_System.Context.student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    dt {
+        color: white !important;
+        text-align: left !important;
+        font-size: 18px !important;
+        width: 220px !important;
+    }
+
+    .dl-horizontal dd {
+        margin-left: 200px !important;
+        color: white !important;
+        text-align: left !important;
+        font-size: 18px !important;
+        width: 768px !important;
+    }
+
+    a {
+        color: #d9d9d9 !important;
+    }
+
+        a:hover {
+            color: #fff !important;
+        }
+</style>
+
+<h2>@Html.DisplayFor(model => model.std_Fname) @Html.DisplayFor(model => model.std_Lname) Student Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.std_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_id)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.std_Fname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_Fname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_Lname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_Lname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_Fathername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_Fathername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_Mothername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_Mothername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_nationality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_nationality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_dob)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_dob)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_doa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_doa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_religion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_religion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.@class.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.@class.name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.@class.section)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.@class.section)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "StudentList")
+</p>

@@ -1,0 +1,290 @@
+﻿@model Student_Management_System.Context.@class
+
+@{
+    ViewBag.Title = "Class Details";
+}
+
+<style>
+    dt {
+        color: white !important;
+        text-align: left !important;
+        font-size: 18px !important;
+        width: 220px !important;
+    }
+
+    .dl-horizontal dd {
+        margin-left: 200px !important;
+        color: white !important;
+        text-align: left !important;
+        font-size: 18px !important;
+        width: 768px !important;
+    }
+
+    a {
+        color: #d9d9d9 !important;
+    }
+
+        a:hover {
+            color: #fff !important;
+        }
+</style>
+
+<h2>Class @Html.DisplayFor(model => model.name) @Html.DisplayFor(model => model.section) Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.section)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.section)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsMaths)
+        </dt>
+
+        <dd>
+            @if (Model.IsMaths.Value == true)
+            {
+                <span>Yes students are learning this subject</span>
+            }
+            else
+            {
+                <span>No students are learning this subject</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEnglishLiterature)
+        </dt>
+
+        <dd>
+            @if (Model.IsEnglishLiterature.Value == true)
+            {
+                <span>Yes students are learning this subject</span>
+            }
+            else
+            {
+                <span>No students are learning this subject</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEnglishGrammar)
+        </dt>
+
+        <dd>
+            @if (Model.IsEnglishGrammar.Value == true)
+            {
+                <span>Yes students are learning this subject</span>
+            }
+            else
+            {
+                <span>No students are learning this subject</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsUrdu)
+        </dt>
+
+        <dd>
+            @if (Model.IsUrdu.Value == true)
+            {
+                <span>Yes students are learning this subject</span>
+            }
+            else
+            {
+                <span>No students are learning this subject</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsIslamiyat)
+        </dt>
+
+        <dd>
+            @if (Model.IsIslamiyat.Value == true)
+            {
+                <span>Yes students are learning this subject</span>
+            }
+            else
+            {
+                <span>No students are learning this subject</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsScience)
+        </dt>
+
+        <dd>
+            @if (Model.IsScience.Value == true)
+            {
+                <span>Yes students are learning this subject</span>
+            }
+            else
+            {
+                <span>No students are learning this subject</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPhysics)
+        </dt>
+
+        <dd>
+            @if (Model.IsPhysics.Value == true)
+            {
+                <span>Yes students are learning this subject</span>
+            }
+            else
+            {
+                <span>No students are learning this subject</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsChemistry)
+        </dt>
+
+        <dd>
+            @if (Model.IsChemistry.Value == true)
+            {
+                <span>Yes students are learning this subject</span>
+            }
+            else
+            {
+                <span>No students are learning this subject</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsComputer)
+        </dt>
+
+        <dd>
+            @if (Model.IsComputer.Value == true)
+            {
+                <span>Yes students are learning this subject</span>
+            }
+            else
+            {
+                <span>No students are learning this subject</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsHistory)
+        </dt>
+
+        <dd>
+            @if (Model.IsHistory.Value == true)
+            {
+                <span>Yes students are learning this subject</span>
+            }
+            else
+            {
+                <span>No students are learning this subject</span>
+            }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsGeography)
+        </dt>
+
+        <dd>
+            @if (Model.IsGeography.Value == true)
+            {
+                <span>Yes students are learning this subject</span>
+            }
+            else
+            {
+                <span>No students are learning this subject</span>
+            }
+        </dd>
+        <dt>
+            Student Count :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.students.Count)
+        </dd>
+    </dl>
+</div>
+<div>
+    <h3 style="text-align:center !important;color:white !important;">
+        Students Information whom enrolled in this <b>Class</b>
+    </h3>
+    <table style="background: cornflowerblue !important;">
+        <tr>
+            <th class="tdata" style="color: black !important;">Student Id</th>
+            <th class="tdata" style="color: black !important;">Student First Name</th>
+            <th class="tdata" style="color: black !important;">Student Last Name</th>
+            <th class="tdata" style="color: black !important;">Student Father Name</th>
+            <th class="tdata" style="color: black !important;">Student Mother Name</th>
+            <th class="tdata" style="color: black !important;">Student Phone Number</th>
+            <th class="tdata" style="color: black !important;">Actions</th>
+        </tr>
+        @if (Model.students.Count <= 0)
+        {
+            <tr style="height:50px !important;text-align:center !important">
+                <th style="color: white !important; text-align:center">No Records Found! </th>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model.students)
+            {
+                <tr>
+                    <td class="tdata">
+                        @Html.DisplayFor(modelItem => item.std_id)
+                    </td>
+                    <td class="tdata">
+                        @Html.DisplayFor(modelItem => item.std_Fname)
+                    </td>
+                    <td class="tdata">
+                        @Html.DisplayFor(modelItem => item.std_Lname)
+                    </td>
+                    <td class="tdata">
+                        @Html.DisplayFor(modelItem => item.std_Fathername)
+                    </td>
+                    <td class="tdata">
+                        @Html.DisplayFor(modelItem => item.std_Mothername)
+                    </td>
+                    <td class="tdata">
+                        @Html.DisplayFor(modelItem => item.std_phone)
+                    </td>
+                    <td class="tdata">
+                        <a href="@Url.Action("Details/"+item.std_id+"","Student")"
+                           class="btn btn-danger">Details</a>
+                    </td>
+
+                </tr>
+            }
+        }
+    </table>
+</div>
+<p>
+    &nbsp;
+</p>
+<p>
+    @Html.ActionLink("Back to List", "ClassList")
+</p>

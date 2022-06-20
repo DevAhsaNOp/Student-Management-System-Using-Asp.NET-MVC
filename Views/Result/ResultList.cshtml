@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Student_Management_System.Context.Joinresult>
+@{
+    ViewBag.Title = "Result List";
+}
+
+<h2>Result List</h2>
+
+<div>
+    @using (Html.BeginForm("ResultList", "Result", FormMethod.Get))
+    {
+        <table>
+            <tr>
+                <td style="color: white !important">
+                    <span><b style="font-size:16px !important">Search By:</b></span>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: white !important">
+                    @Html.RadioButton("searchBy", "StudentFname", true)
+                    <text>Student First name</text> &nbsp;&nbsp;
+                    @Html.RadioButton("searchBy", "StudentLname")
+                    <text>Student Last name</text> &nbsp;&nbsp;
+                    @Html.RadioButton("searchBy", "ClassName")
+                    <text>Class</text> &nbsp;&nbsp;
+                    @Html.RadioButton("searchBy", "ClassSection")
+                    <text>Section</text>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>&nbsp;&nbsp;</div>
+                    <div style="min-width: 100% !important; display: flex !important; ">
+                        @Html.TextBox("searchValue", null, new
+                        {
+                            Class = "form-control",
+                            placeholder = "Enter Class or Section",
+                            style = "min-width: 400px !important" +
+                       ";margin-right: 20px !important; "
+                        })
+                        <input type="submit" value="Search" class="btn btn-warning" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+<br />
+<table>
+    <tr>
+        <td class="tdata">Student Id</td>
+        <td class="tdata">Student First name</td>
+        <td class="tdata">Student Last name</td>
+        <td class="tdata">Class</td>
+        <td class="tdata">Section</td>
+        <td class="tdata">Obtained Marks</td>
+        <td class="tdata">Total Marks</td>
+        <td class="tdata">Percentage</td>
+        <td class="tdata">Grade</td>
+        <td class="tdata">Actions</td>
+    </tr>
+    @if (Model == null)
+    {
+        <tr>No items found</tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td class="tdata">@item.RES_std_id</td>
+                <td class="tdata">@item.StudentFname</td>
+                <td class="tdata">@item.StudentLname</td>
+                <td class="tdata">@item.ClassName</td>
+                <td class="tdata">@item.ClassSection</td>
+                <td class="tdata">@item.RES_obtain_marks</td>
+                <td class="tdata">@item.RES_total_marks</td>
+                <td class="tdata">@item.RES_percentage</td>
+                <td class="tdata">@item.RES_grade</td>
+                <td class="tdata">
+                    <a href="@Url.Action("AddResult", new {item.RES_id,item.RES_class_id,
+                            item.RES_std_id,item.Exam_type,item.RES_maths_marks,item.RES_englishliterature_marks,
+                        item.RES_englishgrammar_marks,item.RES_urdu_marks,item.RES_islamiyat_marks,
+                        item.RES_Science_marks,item.RES_Physics_marks,item.RES_Chemistry_marks,
+                        item.RES_History_marks,item.RES_Geography_marks,item.RES_Computer_marks,
+                        item.RES_activity_marks,item.RES_obtain_marks,item.RES_total_marks,item.RES_percentage,item.RES_grade,item.RES_REmarks})"
+                       class="btn btn-success">Edit</a>
+                    <a href="@Url.Action("Details/"+item.RES_id+"")"
+                       class="btn btn-info">Details</a>
+                </td>
+
+            </tr>
+        }
+    }
+</table>

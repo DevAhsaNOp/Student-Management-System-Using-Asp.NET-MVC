@@ -1,0 +1,223 @@
+﻿@model Student_Management_System.Context.result
+
+@{
+    ViewBag.Title = "Result Details";
+}
+<style>
+    dt {
+        color: white !important;
+        text-align: left !important;
+        font-size: 18px !important;
+        width: 230px !important;
+    }
+
+    .dl-horizontal dd {
+        margin-left: 270px !important;
+        color: white !important;
+        text-align: left !important;
+        font-size: 18px !important;
+        width: 768px !important;
+    }
+
+    a {
+        color: #d9d9d9 !important;
+    }
+
+        a:hover {
+            color: #fff !important;
+        }
+</style>
+
+<h2>@Html.DisplayFor(model => model.student.std_Fname) @Html.DisplayFor(model => model.student.std_Lname) Result Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RES_std_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RES_std_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.student.std_Fname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.student.std_Fname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.student.std_Lname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.student.std_Lname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.@class.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.@class.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.@class.section)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.@class.section)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exam_type)
+        </dt>
+
+        <dd style="font-weight: 800; text-decoration: underline;">
+            @Html.DisplayFor(model => model.Exam_type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RES_maths_marks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RES_maths_marks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RES_englishliterature_marks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RES_englishliterature_marks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RES_englishgrammar_marks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RES_englishgrammar_marks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RES_urdu_marks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RES_urdu_marks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RES_islamiyat_marks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RES_islamiyat_marks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RES_Science_marks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RES_Science_marks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RES_Physics_marks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RES_Physics_marks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RES_Chemistry_marks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RES_Chemistry_marks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RES_History_marks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RES_History_marks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RES_Geography_marks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RES_Geography_marks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RES_Computer_marks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RES_Computer_marks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RES_activity_marks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RES_activity_marks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RES_obtain_marks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RES_obtain_marks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RES_total_marks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RES_total_marks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RES_percentage)
+        </dt>
+
+        <dd style="font-weight: 800; text-decoration: underline;">
+            @Html.DisplayFor(model => model.RES_percentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RES_grade)
+        </dt>
+
+        <dd style="font-weight: 800; text-decoration: underline;">
+            @Html.DisplayFor(model => model.RES_grade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RES_REmarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RES_REmarks)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "ResultList")
+</p>

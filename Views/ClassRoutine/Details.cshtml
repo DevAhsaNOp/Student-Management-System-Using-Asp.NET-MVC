@@ -1,0 +1,209 @@
+﻿@model Student_Management_System.Context.class_routine
+
+@{
+    ViewBag.Title = "Class Routine Details";
+}
+
+<style>
+    dt {
+        color: white !important;
+        text-align: left !important;
+        font-size: 18px !important;
+        width: 220px !important;
+    }
+
+    .dl-horizontal dd {
+        margin-left: 200px !important;
+        color: white !important;
+        text-align: left !important;
+        font-size: 18px !important;
+        width: 768px !important;
+    }
+
+    a {
+        color: #d9d9d9 !important;
+    }
+
+        a:hover {
+            color: #fff !important;
+        }
+
+    .tda {
+        font-size: 16px !important;
+        color: #6c6c6c !important;
+        text-align: center !important;
+        font-weight: 900;
+    }
+
+    .tdata {
+        font-size: 18px !important;
+    }
+</style>
+
+<h2>Class @Html.DisplayFor(model => model.@class.name) @Html.DisplayFor(model => model.@class.section) Routine Detail</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.rou_day)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rou_day)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.@class.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.@class.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.@class.section)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.@class.section)
+        </dd>
+
+    </dl>
+</div>
+
+<div style="display: flex;justify-content: center;">
+    <table style="background: #78d4ef !important; width: 760px !important;">
+        <tr>
+            <th class="tdata" style="color: black !important;">Subject</th>
+            <th class="tdata" style="color: black !important;">Session</th>
+        </tr>
+        <tr>
+            @if (Model.IsMaths.Value == true)
+            {
+                <td class="tda">
+                    Maths
+                </td>
+                <td class="tda">
+                    @Html.DisplayFor(model => model.IsMathsSlot)
+                </td>
+            }
+        </tr>
+        <tr>
+            @if (Model.IsEnglishLiterature.Value == true)
+            {
+                <td class="tda">
+                    English Literature
+                </td>
+                <td class="tda">
+                    @Html.DisplayFor(model => model.IsEnglishLiteratureSlot)
+                </td>
+            }
+        </tr>
+        <tr>
+            @if (Model.IsEnglishGrammar.Value == true)
+            {
+                <td class="tda">
+                    English Grammar
+                </td>
+                <td class="tda">
+                    @Html.DisplayFor(model => model.IsEnglishGrammarSlot)
+                </td>
+            }
+        </tr>
+        <tr>
+            @if (Model.IsUrdu.Value == true)
+            {
+                <td class="tda">
+                    Urdu
+                </td>
+                <td class="tda">
+                    @Html.DisplayFor(model => model.IsUrduSlot)
+                </td>
+            }
+        </tr>
+        <tr>
+            @if (Model.IsIslamiyat.Value == true)
+            {
+                <td class="tda">
+                    Islamiyat
+                </td>
+                <td class="tda">
+                    @Html.DisplayFor(model => model.IsIslamiyatSlot)
+                </td>
+            }
+        </tr>
+        <tr>
+            @if (Model.IsScience.Value == true)
+            {
+                <td class="tda">
+                    Science
+                </td>
+                <td class="tda">
+                    @Html.DisplayFor(model => model.IsScienceSlot)
+                </td>
+            }
+        </tr>
+        <tr>
+            @if (Model.IsPhysics.Value == true)
+            {
+                <td class="tda">
+                    Physics
+                </td>
+                <td class="tda">
+                    @Html.DisplayFor(model => model.IsPhysicsSlot)
+                </td>
+            }
+        </tr>
+        <tr>
+            @if (Model.IsChemistry.Value == true)
+            {
+                <td class="tda">
+                    Chemistry
+                </td>
+                <td class="tda">
+                    @Html.DisplayFor(model => model.IsChemistrySlot)
+                </td>
+            }
+        </tr>
+        <tr>
+            @if (Model.IsComputer.Value == true)
+            {
+                <td class="tda">
+                    Computer
+                </td>
+                <td class="tda">
+                    @Html.DisplayFor(model => model.IsComputer)
+                </td>
+            }
+        </tr>
+        <tr>
+            @if (Model.IsHistory.Value == true)
+            {
+                <td class="tda">
+                    History
+                </td>
+                <td class="tda">
+                    @Html.DisplayFor(model => model.IsHistorySlot)
+                </td>
+            }
+        </tr>
+        <tr>
+            @if (Model.IsGeography.Value == true)
+            {
+                <td class="tda">
+                    Geography
+                </td>
+                <td class="tda">
+                    @Html.DisplayFor(model => model.IsGeographySlot)
+                </td>
+            }
+        </tr>
+    </table>
+</div>
+<p>
+    &nbsp;
+</p>
+<p>
+    @Html.ActionLink("Back to List", "TimeTableList")
+</p>

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Student_Management_System.Context.JoinClasses>
+
+@{
+    ViewBag.Title = "ClassList";
+}
+
+<h2>Class List</h2>
+<div>
+    @using (Html.BeginForm("ClassList", "Class", FormMethod.Get))
+    {
+        <table>
+            <tr>
+                <td style="color: white !important">
+                    <span><b style="font-size:16px !important">Search By:</b></span>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: white !important">
+                    @Html.RadioButton("searchBy", "name", true)
+                    <text>Class</text> &nbsp;&nbsp;
+                    @Html.RadioButton("searchBy", "section")
+                    <text>Section</text>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>&nbsp;&nbsp;</div>
+                    <div style="min-width: 100% !important; display: flex !important; ">
+                        @Html.TextBox("searchValue", null, new
+                        {
+                            Class = "form-control",
+                            placeholder = "Enter Class or Section",
+                            style = "min-width: 400px !important" +
+                       ";margin-right: 20px !important; "
+                        })
+                        <input type="submit" value="Search" class="btn btn-warning" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+<br />
+<table>
+    <tr>
+        <td class="tdata">Class Id</td>
+        <td class="tdata">Class</td>
+        <td class="tdata">Section</td>
+        <td class="tdata">Actions</td>
+    </tr>
+    @if (Model == null)
+    {
+        <tr>No items found</tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td class="tdata">@item.id</td>
+                <td class="tdata">@item.name</td>
+                <td class="tdata">@item.section</td>
+                <td class="tdata">
+                    <a href="@Url.Action("AddClass", new {item.id,item.name,item.section
+                     ,item.IsMaths,item.IsEnglishLiterature,item.IsEnglishGrammar,
+                            item.IsUrdu,item.IsIslamiyat,item.IsScience
+                    ,item.IsPhysics,item.IsChemistry,item.IsComputer,item.IsHistory
+                    ,item.IsGeography})"
+                       class="btn btn-success">Edit</a>
+                    <a href="@Url.Action("Details/"+item.id+"")"
+                       class="btn btn-info">Details</a>
+                </td>
+
+            </tr>
+        }
+    }
+</table>

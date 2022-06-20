@@ -1,0 +1,623 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="studentmanagementsystem_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="class">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="section" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IsMaths" Type="bit" />
+          <Property Name="IsEnglishLiterature" Type="bit" />
+          <Property Name="IsEnglishGrammar" Type="bit" />
+          <Property Name="IsUrdu" Type="bit" />
+          <Property Name="IsIslamiyat" Type="bit" />
+          <Property Name="IsScience" Type="bit" />
+          <Property Name="IsPhysics" Type="bit" />
+          <Property Name="IsChemistry" Type="bit" />
+          <Property Name="IsComputer" Type="bit" />
+          <Property Name="IsHistory" Type="bit" />
+          <Property Name="IsGeography" Type="bit" />
+        </EntityType>
+        <EntityType Name="class_routine">
+          <Key>
+            <PropertyRef Name="rou_id" />
+          </Key>
+          <Property Name="rou_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rou_day" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="class_id" Type="int" />
+          <Property Name="IsMaths" Type="bit" />
+          <Property Name="IsMathsSlot" Type="nvarchar" MaxLength="80" />
+          <Property Name="IsEnglishLiterature" Type="bit" />
+          <Property Name="IsEnglishLiteratureSlot" Type="nvarchar" MaxLength="80" />
+          <Property Name="IsEnglishGrammar" Type="bit" />
+          <Property Name="IsEnglishGrammarSlot" Type="nvarchar" MaxLength="80" />
+          <Property Name="IsUrdu" Type="bit" />
+          <Property Name="IsUrduSlot" Type="nvarchar" MaxLength="80" />
+          <Property Name="IsIslamiyat" Type="bit" />
+          <Property Name="IsIslamiyatSlot" Type="nvarchar" MaxLength="80" />
+          <Property Name="IsScience" Type="bit" />
+          <Property Name="IsScienceSlot" Type="nvarchar" MaxLength="80" />
+          <Property Name="IsPhysics" Type="bit" />
+          <Property Name="IsPhysicsSlot" Type="nvarchar" MaxLength="80" />
+          <Property Name="IsChemistry" Type="bit" />
+          <Property Name="IsChemistrySlot" Type="nvarchar" MaxLength="80" />
+          <Property Name="IsComputer" Type="bit" />
+          <Property Name="IsComputerSlot" Type="nvarchar" MaxLength="80" />
+          <Property Name="IsHistory" Type="bit" />
+          <Property Name="IsHistorySlot" Type="nvarchar" MaxLength="80" />
+          <Property Name="IsGeography" Type="bit" />
+          <Property Name="IsGeographySlot" Type="nvarchar" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="fees">
+          <Key>
+            <PropertyRef Name="fees_reciept_no" />
+          </Key>
+          <Property Name="fees_reciept_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fees_std_id" Type="int" />
+          <Property Name="fees_IssueDate" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fees_Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fees_PaidDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="fees_Payment" Type="float" Nullable="false" />
+          <Property Name="fees_PreviousCharges" Type="float" />
+          <Property Name="fees_TotalAmount" Type="float" Nullable="false" />
+          <Property Name="fees_Remarks" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="result">
+          <Key>
+            <PropertyRef Name="RES_id" />
+          </Key>
+          <Property Name="RES_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RES_class_id" Type="int" />
+          <Property Name="RES_std_id" Type="int" />
+          <Property Name="Exam_type" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="RES_maths_marks" Type="int" />
+          <Property Name="RES_englishliterature_marks" Type="int" />
+          <Property Name="RES_englishgrammar_marks" Type="int" />
+          <Property Name="RES_urdu_marks" Type="int" />
+          <Property Name="RES_islamiyat_marks" Type="int" />
+          <Property Name="RES_Science_marks" Type="int" />
+          <Property Name="RES_Physics_marks" Type="int" />
+          <Property Name="RES_Chemistry_marks" Type="int" />
+          <Property Name="RES_History_marks" Type="int" />
+          <Property Name="RES_Geography_marks" Type="int" />
+          <Property Name="RES_Computer_marks" Type="int" />
+          <Property Name="RES_activity_marks" Type="int" />
+          <Property Name="RES_obtain_marks" Type="int" Nullable="false" />
+          <Property Name="RES_total_marks" Type="int" Nullable="false" />
+          <Property Name="RES_percentage" Type="float" Nullable="false" />
+          <Property Name="RES_grade" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RES_REmarks" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="std_id" />
+          </Key>
+          <Property Name="std_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="std_Fname" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="std_Lname" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="std_Fathername" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="std_Mothername" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="std_gender" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="std_phone" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="std_address" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="std_email" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="std_nationality" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="std_dob" Type="date" Nullable="false" />
+          <Property Name="std_doa" Type="date" Nullable="false" />
+          <Property Name="std_age" Type="int" Nullable="false" />
+          <Property Name="std_religion" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="std_class_id" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbl_account">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Confirmpassword" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__class_rou__class__0A9D95DB">
+          <End Role="class" Type="Self.class" Multiplicity="0..1" />
+          <End Role="class_routine" Type="Self.class_routine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="class">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="class_routine">
+              <PropertyRef Name="class_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__fees__fees_std_i__1AD3FDA4">
+          <End Role="student" Type="Self.student" Multiplicity="0..1" />
+          <End Role="fees" Type="Self.fees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="std_id" />
+            </Principal>
+            <Dependent Role="fees">
+              <PropertyRef Name="fees_std_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__result__RES_clas__17036CC0">
+          <End Role="class" Type="Self.class" Multiplicity="0..1" />
+          <End Role="result" Type="Self.result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="class">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="result">
+              <PropertyRef Name="RES_class_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__result__RES_std___17F790F9">
+          <End Role="student" Type="Self.student" Multiplicity="0..1" />
+          <End Role="result" Type="Self.result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="std_id" />
+            </Principal>
+            <Dependent Role="result">
+              <PropertyRef Name="RES_std_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__student__std_cla__04E4BC85">
+          <End Role="class" Type="Self.class" Multiplicity="0..1" />
+          <End Role="student" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="class">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="std_class_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="studentmanagementsystem_ModelStoreContainer">
+          <EntitySet Name="class" EntityType="Self.class" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="class_routine" EntityType="Self.class_routine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fees" EntityType="Self.fees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="result" EntityType="Self.result" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_account" EntityType="Self.tbl_account" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__class_rou__class__0A9D95DB" Association="Self.FK__class_rou__class__0A9D95DB">
+            <End Role="class" EntitySet="class" />
+            <End Role="class_routine" EntitySet="class_routine" />
+          </AssociationSet>
+          <AssociationSet Name="FK__fees__fees_std_i__1AD3FDA4" Association="Self.FK__fees__fees_std_i__1AD3FDA4">
+            <End Role="student" EntitySet="student" />
+            <End Role="fees" EntitySet="fees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__result__RES_clas__17036CC0" Association="Self.FK__result__RES_clas__17036CC0">
+            <End Role="class" EntitySet="class" />
+            <End Role="result" EntitySet="result" />
+          </AssociationSet>
+          <AssociationSet Name="FK__result__RES_std___17F790F9" Association="Self.FK__result__RES_std___17F790F9">
+            <End Role="student" EntitySet="student" />
+            <End Role="result" EntitySet="result" />
+          </AssociationSet>
+          <AssociationSet Name="FK__student__std_cla__04E4BC85" Association="Self.FK__student__std_cla__04E4BC85">
+            <End Role="class" EntitySet="class" />
+            <End Role="student" EntitySet="student" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="studentmanagementsystem_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="class">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="section" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsMaths" Type="Boolean" />
+          <Property Name="IsEnglishLiterature" Type="Boolean" />
+          <Property Name="IsEnglishGrammar" Type="Boolean" />
+          <Property Name="IsUrdu" Type="Boolean" />
+          <Property Name="IsIslamiyat" Type="Boolean" />
+          <Property Name="IsScience" Type="Boolean" />
+          <Property Name="IsPhysics" Type="Boolean" />
+          <Property Name="IsChemistry" Type="Boolean" />
+          <Property Name="IsComputer" Type="Boolean" />
+          <Property Name="IsHistory" Type="Boolean" />
+          <Property Name="IsGeography" Type="Boolean" />
+          <NavigationProperty Name="class_routine" Relationship="Self.FK__class_rou__class__72C60C4A" FromRole="class" ToRole="class_routine" />
+          <NavigationProperty Name="results" Relationship="Self.FK__result__RES_clas__6D0D32F4" FromRole="class" ToRole="result" />
+          <NavigationProperty Name="students" Relationship="Self.FK__student__std_cla__6754599E" FromRole="class" ToRole="student" />
+        </EntityType>
+        <EntityType Name="class_routine">
+          <Key>
+            <PropertyRef Name="rou_id" />
+          </Key>
+          <Property Name="rou_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rou_day" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="class_id" Type="Int32" />
+          <Property Name="IsMaths" Type="Boolean" />
+          <Property Name="IsMathsSlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="IsEnglishLiterature" Type="Boolean" />
+          <Property Name="IsEnglishLiteratureSlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="IsEnglishGrammar" Type="Boolean" />
+          <Property Name="IsEnglishGrammarSlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="IsUrdu" Type="Boolean" />
+          <Property Name="IsUrduSlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="IsIslamiyat" Type="Boolean" />
+          <Property Name="IsIslamiyatSlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="IsScience" Type="Boolean" />
+          <Property Name="IsScienceSlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="IsPhysics" Type="Boolean" />
+          <Property Name="IsPhysicsSlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="IsChemistry" Type="Boolean" />
+          <Property Name="IsChemistrySlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="IsComputer" Type="Boolean" />
+          <Property Name="IsComputerSlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="IsHistory" Type="Boolean" />
+          <Property Name="IsHistorySlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="IsGeography" Type="Boolean" />
+          <Property Name="IsGeographySlot" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="class" Relationship="Self.FK__class_rou__class__72C60C4A" FromRole="class_routine" ToRole="class" />
+        </EntityType>
+        <EntityType Name="result">
+          <Key>
+            <PropertyRef Name="RES_id" />
+          </Key>
+          <Property Name="RES_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RES_class_id" Type="Int32" />
+          <Property Name="RES_std_id" Type="Int32" />
+          <Property Name="Exam_type" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RES_maths_marks" Type="Int32" />
+          <Property Name="RES_englishliterature_marks" Type="Int32" />
+          <Property Name="RES_englishgrammar_marks" Type="Int32" />
+          <Property Name="RES_urdu_marks" Type="Int32" />
+          <Property Name="RES_islamiyat_marks" Type="Int32" />
+          <Property Name="RES_Science_marks" Type="Int32" />
+          <Property Name="RES_Physics_marks" Type="Int32" />
+          <Property Name="RES_Chemistry_marks" Type="Int32" />
+          <Property Name="RES_History_marks" Type="Int32" />
+          <Property Name="RES_Geography_marks" Type="Int32" />
+          <Property Name="RES_Computer_marks" Type="Int32" />
+          <Property Name="RES_activity_marks" Type="Int32" />
+          <Property Name="RES_total_marks" Type="Int32" Nullable="false" />
+          <Property Name="RES_percentage" Type="Double" Nullable="false" />
+          <Property Name="RES_grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RES_REmarks" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="class" Relationship="Self.FK__result__RES_clas__6D0D32F4" FromRole="result" ToRole="class" />
+          <NavigationProperty Name="student" Relationship="Self.FK__result__RES_std___6E01572D" FromRole="result" ToRole="student" />
+          <Property Name="RES_obtain_marks" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="std_id" />
+          </Key>
+          <Property Name="std_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="std_Fname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="std_Lname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="std_Fathername" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="std_Mothername" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="std_gender" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="std_phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="std_address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="std_email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="std_nationality" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="std_dob" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="std_doa" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="std_age" Type="Int32" Nullable="false" />
+          <Property Name="std_religion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="std_class_id" Type="Int32" />
+          <NavigationProperty Name="class" Relationship="Self.FK__student__std_cla__6754599E" FromRole="student" ToRole="class" />
+          <NavigationProperty Name="results" Relationship="Self.FK__result__RES_std___6E01572D" FromRole="student" ToRole="result" />
+          <NavigationProperty Name="fees" Relationship="studentmanagementsystem_Model.FK__fees__fees_std_i__1AD3FDA4" FromRole="student" ToRole="fee" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_account">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Confirmpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__class_rou__class__72C60C4A">
+          <End Role="class" Type="Self.class" Multiplicity="0..1" />
+          <End Role="class_routine" Type="Self.class_routine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="class">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="class_routine">
+              <PropertyRef Name="class_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__result__RES_clas__6D0D32F4">
+          <End Role="class" Type="Self.class" Multiplicity="0..1" />
+          <End Role="result" Type="Self.result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="class">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="result">
+              <PropertyRef Name="RES_class_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__student__std_cla__6754599E">
+          <End Role="class" Type="Self.class" Multiplicity="0..1" />
+          <End Role="student" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="class">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="std_class_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__result__RES_std___6E01572D">
+          <End Role="student" Type="Self.student" Multiplicity="0..1" />
+          <End Role="result" Type="Self.result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="std_id" />
+            </Principal>
+            <Dependent Role="result">
+              <PropertyRef Name="RES_std_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="studentmanagementsystem_Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="classes" EntityType="Self.class" />
+          <EntitySet Name="class_routine" EntityType="Self.class_routine" />
+          <EntitySet Name="results" EntityType="Self.result" />
+          <EntitySet Name="students" EntityType="Self.student" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tbl_account" EntityType="Self.tbl_account" />
+          <AssociationSet Name="FK__class_rou__class__72C60C4A" Association="Self.FK__class_rou__class__72C60C4A">
+            <End Role="class" EntitySet="classes" />
+            <End Role="class_routine" EntitySet="class_routine" />
+          </AssociationSet>
+          <AssociationSet Name="FK__result__RES_clas__6D0D32F4" Association="Self.FK__result__RES_clas__6D0D32F4">
+            <End Role="class" EntitySet="classes" />
+            <End Role="result" EntitySet="results" />
+          </AssociationSet>
+          <AssociationSet Name="FK__student__std_cla__6754599E" Association="Self.FK__student__std_cla__6754599E">
+            <End Role="class" EntitySet="classes" />
+            <End Role="student" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="FK__result__RES_std___6E01572D" Association="Self.FK__result__RES_std___6E01572D">
+            <End Role="student" EntitySet="students" />
+            <End Role="result" EntitySet="results" />
+          </AssociationSet>
+          <EntitySet Name="fees" EntityType="studentmanagementsystem_Model.fee" />
+          <AssociationSet Name="FK__fees__fees_std_i__1AD3FDA4" Association="studentmanagementsystem_Model.FK__fees__fees_std_i__1AD3FDA4">
+            <End Role="student" EntitySet="students" />
+            <End Role="fee" EntitySet="fees" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="fee">
+          <Key>
+            <PropertyRef Name="fees_reciept_no" />
+          </Key>
+          <Property Name="fees_reciept_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fees_std_id" Type="Int32" />
+          <Property Name="fees_IssueDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fees_Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fees_PaidDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fees_Payment" Type="Double" Nullable="false" />
+          <Property Name="fees_PreviousCharges" Type="Double" />
+          <Property Name="fees_TotalAmount" Type="Double" Nullable="false" />
+          <Property Name="fees_Remarks" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="student" Relationship="studentmanagementsystem_Model.FK__fees__fees_std_i__1AD3FDA4" FromRole="fee" ToRole="student" />
+        </EntityType>
+        <Association Name="FK__fees__fees_std_i__1AD3FDA4">
+          <End Type="studentmanagementsystem_Model.student" Role="student" Multiplicity="0..1" />
+          <End Type="studentmanagementsystem_Model.fee" Role="fee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="std_id" />
+            </Principal>
+            <Dependent Role="fee">
+              <PropertyRef Name="fees_std_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="studentmanagementsystem_ModelStoreContainer" CdmEntityContainer="studentmanagementsystem_Entities1">
+          <EntitySetMapping Name="classes">
+            <EntityTypeMapping TypeName="studentmanagementsystem_Model.class">
+              <MappingFragment StoreEntitySet="class">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="section" ColumnName="section" />
+                <ScalarProperty Name="IsMaths" ColumnName="IsMaths" />
+                <ScalarProperty Name="IsEnglishLiterature" ColumnName="IsEnglishLiterature" />
+                <ScalarProperty Name="IsEnglishGrammar" ColumnName="IsEnglishGrammar" />
+                <ScalarProperty Name="IsUrdu" ColumnName="IsUrdu" />
+                <ScalarProperty Name="IsIslamiyat" ColumnName="IsIslamiyat" />
+                <ScalarProperty Name="IsScience" ColumnName="IsScience" />
+                <ScalarProperty Name="IsPhysics" ColumnName="IsPhysics" />
+                <ScalarProperty Name="IsChemistry" ColumnName="IsChemistry" />
+                <ScalarProperty Name="IsComputer" ColumnName="IsComputer" />
+                <ScalarProperty Name="IsHistory" ColumnName="IsHistory" />
+                <ScalarProperty Name="IsGeography" ColumnName="IsGeography" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="class_routine">
+            <EntityTypeMapping TypeName="studentmanagementsystem_Model.class_routine">
+              <MappingFragment StoreEntitySet="class_routine">
+                <ScalarProperty Name="rou_id" ColumnName="rou_id" />
+                <ScalarProperty Name="rou_day" ColumnName="rou_day" />
+                <ScalarProperty Name="class_id" ColumnName="class_id" />
+                <ScalarProperty Name="IsMaths" ColumnName="IsMaths" />
+                <ScalarProperty Name="IsMathsSlot" ColumnName="IsMathsSlot" />
+                <ScalarProperty Name="IsEnglishLiterature" ColumnName="IsEnglishLiterature" />
+                <ScalarProperty Name="IsEnglishLiteratureSlot" ColumnName="IsEnglishLiteratureSlot" />
+                <ScalarProperty Name="IsEnglishGrammar" ColumnName="IsEnglishGrammar" />
+                <ScalarProperty Name="IsEnglishGrammarSlot" ColumnName="IsEnglishGrammarSlot" />
+                <ScalarProperty Name="IsUrdu" ColumnName="IsUrdu" />
+                <ScalarProperty Name="IsUrduSlot" ColumnName="IsUrduSlot" />
+                <ScalarProperty Name="IsIslamiyat" ColumnName="IsIslamiyat" />
+                <ScalarProperty Name="IsIslamiyatSlot" ColumnName="IsIslamiyatSlot" />
+                <ScalarProperty Name="IsScience" ColumnName="IsScience" />
+                <ScalarProperty Name="IsScienceSlot" ColumnName="IsScienceSlot" />
+                <ScalarProperty Name="IsPhysics" ColumnName="IsPhysics" />
+                <ScalarProperty Name="IsPhysicsSlot" ColumnName="IsPhysicsSlot" />
+                <ScalarProperty Name="IsChemistry" ColumnName="IsChemistry" />
+                <ScalarProperty Name="IsChemistrySlot" ColumnName="IsChemistrySlot" />
+                <ScalarProperty Name="IsComputer" ColumnName="IsComputer" />
+                <ScalarProperty Name="IsComputerSlot" ColumnName="IsComputerSlot" />
+                <ScalarProperty Name="IsHistory" ColumnName="IsHistory" />
+                <ScalarProperty Name="IsHistorySlot" ColumnName="IsHistorySlot" />
+                <ScalarProperty Name="IsGeography" ColumnName="IsGeography" />
+                <ScalarProperty Name="IsGeographySlot" ColumnName="IsGeographySlot" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="results">
+            <EntityTypeMapping TypeName="studentmanagementsystem_Model.result">
+              <MappingFragment StoreEntitySet="result">
+                <ScalarProperty Name="RES_obtain_marks" ColumnName="RES_obtain_marks" />
+                <ScalarProperty Name="RES_id" ColumnName="RES_id" />
+                <ScalarProperty Name="RES_class_id" ColumnName="RES_class_id" />
+                <ScalarProperty Name="RES_std_id" ColumnName="RES_std_id" />
+                <ScalarProperty Name="Exam_type" ColumnName="Exam_type" />
+                <ScalarProperty Name="RES_maths_marks" ColumnName="RES_maths_marks" />
+                <ScalarProperty Name="RES_englishliterature_marks" ColumnName="RES_englishliterature_marks" />
+                <ScalarProperty Name="RES_englishgrammar_marks" ColumnName="RES_englishgrammar_marks" />
+                <ScalarProperty Name="RES_urdu_marks" ColumnName="RES_urdu_marks" />
+                <ScalarProperty Name="RES_islamiyat_marks" ColumnName="RES_islamiyat_marks" />
+                <ScalarProperty Name="RES_Science_marks" ColumnName="RES_Science_marks" />
+                <ScalarProperty Name="RES_Physics_marks" ColumnName="RES_Physics_marks" />
+                <ScalarProperty Name="RES_Chemistry_marks" ColumnName="RES_Chemistry_marks" />
+                <ScalarProperty Name="RES_History_marks" ColumnName="RES_History_marks" />
+                <ScalarProperty Name="RES_Geography_marks" ColumnName="RES_Geography_marks" />
+                <ScalarProperty Name="RES_Computer_marks" ColumnName="RES_Computer_marks" />
+                <ScalarProperty Name="RES_activity_marks" ColumnName="RES_activity_marks" />
+                <ScalarProperty Name="RES_total_marks" ColumnName="RES_total_marks" />
+                <ScalarProperty Name="RES_percentage" ColumnName="RES_percentage" />
+                <ScalarProperty Name="RES_grade" ColumnName="RES_grade" />
+                <ScalarProperty Name="RES_REmarks" ColumnName="RES_REmarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="students">
+            <EntityTypeMapping TypeName="studentmanagementsystem_Model.student">
+              <MappingFragment StoreEntitySet="student">
+                <ScalarProperty Name="std_id" ColumnName="std_id" />
+                <ScalarProperty Name="std_Fname" ColumnName="std_Fname" />
+                <ScalarProperty Name="std_Lname" ColumnName="std_Lname" />
+                <ScalarProperty Name="std_Fathername" ColumnName="std_Fathername" />
+                <ScalarProperty Name="std_Mothername" ColumnName="std_Mothername" />
+                <ScalarProperty Name="std_gender" ColumnName="std_gender" />
+                <ScalarProperty Name="std_phone" ColumnName="std_phone" />
+                <ScalarProperty Name="std_address" ColumnName="std_address" />
+                <ScalarProperty Name="std_email" ColumnName="std_email" />
+                <ScalarProperty Name="std_nationality" ColumnName="std_nationality" />
+                <ScalarProperty Name="std_dob" ColumnName="std_dob" />
+                <ScalarProperty Name="std_doa" ColumnName="std_doa" />
+                <ScalarProperty Name="std_age" ColumnName="std_age" />
+                <ScalarProperty Name="std_religion" ColumnName="std_religion" />
+                <ScalarProperty Name="std_class_id" ColumnName="std_class_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="studentmanagementsystem_Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_account">
+            <EntityTypeMapping TypeName="studentmanagementsystem_Model.tbl_account">
+              <MappingFragment StoreEntitySet="tbl_account">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="Confirmpassword" ColumnName="Confirmpassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fees">
+            <EntityTypeMapping TypeName="studentmanagementsystem_Model.fee">
+              <MappingFragment StoreEntitySet="fees">
+                <ScalarProperty Name="fees_Remarks" ColumnName="fees_Remarks" />
+                <ScalarProperty Name="fees_TotalAmount" ColumnName="fees_TotalAmount" />
+                <ScalarProperty Name="fees_PreviousCharges" ColumnName="fees_PreviousCharges" />
+                <ScalarProperty Name="fees_Payment" ColumnName="fees_Payment" />
+                <ScalarProperty Name="fees_PaidDate" ColumnName="fees_PaidDate" />
+                <ScalarProperty Name="fees_Status" ColumnName="fees_Status" />
+                <ScalarProperty Name="fees_IssueDate" ColumnName="fees_IssueDate" />
+                <ScalarProperty Name="fees_std_id" ColumnName="fees_std_id" />
+                <ScalarProperty Name="fees_reciept_no" ColumnName="fees_reciept_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
